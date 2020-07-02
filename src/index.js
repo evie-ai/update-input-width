@@ -58,12 +58,11 @@ export function updateInputWidth(element) {
 
   const font = getFontShorthand(element);
   const text = element.value || element.placeholder;
-  const width = measureText(text, font);
+  const width = measureText(text, font)+2;
 
   if (width === null) {
     return null;
   }
-  width = width+2;
   element.style.width = `${width}px`;
   return width;
 }
