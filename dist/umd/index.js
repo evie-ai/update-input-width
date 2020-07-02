@@ -7,9 +7,6 @@ exports.getFontShorthand = getFontShorthand;
 exports.measureText = measureText;
 exports.updateInputWidth = updateInputWidth;
 exports["default"] = void 0;
-
-function _readOnlyError(name) { throw new Error("\"" + name + "\" is read-only"); }
-
 var allowedVariants = ['normal', 'small-caps'];
 /**
  * Gets font CSS shorthand property given element.
@@ -69,13 +66,12 @@ function updateInputWidth(element) {
 
   var font = getFontShorthand(element);
   var text = element.value || element.placeholder;
-  var width = measureText(text, font);
+  var width = measureText(text, font) + 2;
 
   if (width === null) {
     return null;
   }
 
-  width = (_readOnlyError("width"), width + 2);
   element.style.width = "".concat(width, "px");
   return width;
 }
