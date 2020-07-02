@@ -63,7 +63,7 @@ export function updateInputWidth(element) {
   if (width === null) {
     return null;
   }
-
+  width = width+2;
   element.style.width = `${width}px`;
   return width;
 }
